@@ -1,0 +1,9 @@
+datasets
+transformers
+sentencepiece
+torch
+scikit-learn
+wandb
+hydra-core
+omegaconf
+tiktoken

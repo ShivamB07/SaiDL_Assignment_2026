@@ -1,0 +1,227 @@
+Loaded config:
+model:
+  n_embed: 512
+  block_size: 1024
+  num_layers: 4
+  num_head: 8
+  dropout_prob: 0.1
+attention:
+  type: mha
+  sliding_window_mask: false
+  window_size: 512
+  positional_encoding: rope
+  group_size: 2
+  use_local_conv: false
+  ngram_size: 3
+  base: 2048
+optimiser:
+  lr: 0.001
+train:
+  epochs: 10
+  eval_interval: 1
+  batch_size: 4
+  eval_batch_size: 6
+  block_size: 8
+  eval_block_size: 1024
+  log_interval: 100
+  max_iterations_per_epoch: 10000
+wandb:
+  project: SaiDl-core-ml
+  name: mha-rope(2048)-1024
+
+[2026-06-06 20:15:06,319][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-06-06 20:15:06,585][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 20:15:06,831][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:07,080][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 20:15:07,329][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+Model:
+Transformer(
+  (token_embedding_table): Embedding(50257, 512)
+  (blocks): Sequential(
+    (0): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (rotary_emb): RotaryEmbedding()
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+    (1): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (rotary_emb): RotaryEmbedding()
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+    (2): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (rotary_emb): RotaryEmbedding()
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+    (3): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (rotary_emb): RotaryEmbedding()
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+  )
+  (ln_f): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+  (lf): Linear(in_features=512, out_features=50257, bias=True)
+)
+[2026-06-06 20:15:10,188][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 20:15:10,234][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/Salesforce/wikitext/b08601e04326c79dfdd32d625aee71d232d685c3/README.md "HTTP/1.1 200 OK"
+[2026-06-06 20:15:10,479][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext.py "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:11,244][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/Salesforce/wikitext/Salesforce/wikitext.py "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:11,511][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/revision/b08601e04326c79dfdd32d625aee71d232d685c3 "HTTP/1.1 200 OK"
+[2026-06-06 20:15:11,764][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/.huggingface.yaml "HTTP/1.1 404 Not Found"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-06 20:15:11,765][huggingface_hub.utils._http][WARNING] - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-06 20:15:12,126][httpx][INFO] - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=Salesforce/wikitext "HTTP/1.1 200 OK"
+[2026-06-06 20:15:12,375][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-103-raw-v1?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-06-06 20:15:12,622][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3?recursive=false&expand=false "HTTP/1.1 200 OK"
+[2026-06-06 20:15:12,905][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/dataset_infos.json "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:13,200][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1?recursive=true&expand=false "HTTP/1.1 200 OK"
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (2428601 > 1024). Running this sequence through the model will result in indexing errors
+[2026-06-06 20:15:22,582][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 20:15:22,628][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/Salesforce/wikitext/b08601e04326c79dfdd32d625aee71d232d685c3/README.md "HTTP/1.1 200 OK"
+[2026-06-06 20:15:22,985][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext.py "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:23,776][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/Salesforce/wikitext/Salesforce/wikitext.py "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:24,026][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/.huggingface.yaml "HTTP/1.1 404 Not Found"
+[2026-06-06 20:15:24,408][httpx][INFO] - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=Salesforce/wikitext "HTTP/1.1 200 OK"
+[2026-06-06 20:15:24,661][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/dataset_infos.json "HTTP/1.1 404 Not Found"
+cuda
+
+--- VALIDATION (Epoch 0) ---
+Val Loss: 10.9992
+Val Perplexity: 59824.2567
+Eval Throughput: 39421.23 tokens/sec
+
+epoch 0, step 100: train loss 8.3920
+epoch 0, step 200: train loss 7.9869
+epoch 0, step 300: train loss 7.8476
+epoch 0, step 400: train loss 7.7622
+epoch 0, step 500: train loss 7.7042
+epoch 0, step 600: train loss 7.6522
+epoch 0, step 700: train loss 7.4897
+epoch 0, step 800: train loss 7.5773
+epoch 0, step 900: train loss 7.3692
+epoch 0, step 1000: train loss 7.1064
+epoch 0, step 1100: train loss 7.1313
+epoch 0, step 1200: train loss 7.3067
+epoch 0, step 1300: train loss 7.3043
+epoch 0, step 1400: train loss 7.1509
+epoch 0, step 1500: train loss 6.9002
+epoch 0, step 1600: train loss 6.9815
+epoch 0, step 1700: train loss 7.0800
+epoch 0, step 1800: train loss 7.0055
+epoch 0, step 1900: train loss 7.0121
+epoch 0, step 2000: train loss 7.0059
+epoch 0, step 2100: train loss 6.9491
+epoch 0, step 2200: train loss 6.9902
+epoch 0, step 2300: train loss 7.0650
+epoch 0, step 2400: train loss 6.8916
+epoch 0, step 2500: train loss 6.8219
+epoch 0, step 2600: train loss 6.8620
+epoch 0, step 2700: train loss 6.9858
+epoch 0, step 2800: train loss 7.0212
+epoch 0, step 2900: train loss 6.8205
+epoch 0, step 3000: train loss 6.8046
+epoch 0, step 3100: train loss 7.0489
+epoch 0, step 3200: train loss 6.8037
+epoch 0, step 3300: train loss 6.8237
+epoch 0, step 3400: train loss 6.8462
+epoch 0, step 3500: train loss 6.7492
+epoch 0, step 3600: train loss 6.8452
+epoch 0, step 3700: train loss 6.8062
+epoch 0, step 3800: train loss 6.7779
+epoch 0, step 3900: train loss 6.7041
+epoch 0, step 4000: train loss 6.7071
+epoch 0, step 4100: train loss 6.9417
+epoch 0, step 4200: train loss 6.8075
+epoch 0, step 4300: train loss 6.7321
+epoch 0, step 4400: train loss 6.8460
+epoch 0, step 4500: train loss 6.6196
+epoch 0, step 4600: train loss 6.9621
+epoch 0, step 4700: train loss 6.6049
+epoch 0, step 4800: train loss 6.8392
+epoch 0, step 4900: train loss 6.6938
+epoch 0, step 5000: train loss 6.6964
+Traceback (most recent call last):
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/core_ml/train.py", line 145, in <module>
+    main()
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+          ^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/core_ml/train.py", line 126, in main
+    train_loss += loss.item()
+                  ^^^^^^^^^^^
+KeyboardInterrupt

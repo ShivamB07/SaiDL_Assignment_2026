@@ -1,0 +1,23 @@
+model:
+  name_or_path: microsoft/deberta-v3-base
+  num_labels: 2
+peft:
+  type: lora
+  rank: 12
+  alpha: 16
+training:
+  num_epochs: 1
+  batch_size: 16
+  block_size: 128
+  learning_rate: 2.0e-05
+  eval_batch_size: 64
+  eval_interval: 1
+  log_interval: 10
+  max_iterations_per_epoch: 100
+adalora:
+  ortho_lambda: 0.1
+  svd_threshold: 1.0e-05
+sora:
+  proximal_threshold: 0.001
+wandb:
+  name: trial_1

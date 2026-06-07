@@ -1,0 +1,185 @@
+Loaded config:
+model:
+  n_embed: 512
+  block_size: 1024
+  num_layers: 4
+  num_head: 8
+  dropout_prob: 0.1
+attention:
+  type: mha
+  sliding_window_mask: false
+  window_size: 512
+  positional_encoding: alibi
+  group_size: 2
+  use_local_conv: true
+  ngram_size: 512
+  base: 10000
+optimiser:
+  lr: 0.0001
+train:
+  epochs: 10
+  eval_interval: 1
+  batch_size: 4
+  eval_batch_size: 6
+  block_size: 8
+  eval_block_size: 1024
+  log_interval: 100
+  max_iterations_per_epoch: 10000
+wandb:
+  project: SaiDl-core-ml
+  name: mha-alibi-CONV512-1024
+
+[2026-06-07 12:56:29,771][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/gpt2/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-06-07 12:56:30,038][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 307 Temporary Redirect"
+[2026-06-07 12:56:30,288][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-06-07 12:56:30,531][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 307 Temporary Redirect"
+[2026-06-07 12:56:30,785][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/openai-community/gpt2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+Model:
+Transformer(
+  (token_embedding_table): Embedding(50257, 512)
+  (blocks): Sequential(
+    (0): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (local_conv): Conv1d(512, 512, kernel_size=(512,), stride=(1,), padding=(256,))
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+    (1): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (local_conv): Conv1d(512, 512, kernel_size=(512,), stride=(1,), padding=(256,))
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+    (2): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (local_conv): Conv1d(512, 512, kernel_size=(512,), stride=(1,), padding=(256,))
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+    (3): Block(
+      (attn): MultiHeadAttention(
+        (key): Linear(in_features=512, out_features=512, bias=False)
+        (query): Linear(in_features=512, out_features=512, bias=False)
+        (value): Linear(in_features=512, out_features=512, bias=False)
+        (proj): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (local_conv): Conv1d(512, 512, kernel_size=(512,), stride=(1,), padding=(256,))
+      )
+      (ffw): FeedForward(
+        (network): Sequential(
+          (0): Linear(in_features=512, out_features=2048, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=2048, out_features=512, bias=True)
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (l1): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+      (l2): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+    )
+  )
+  (ln_f): LayerNorm((512,), eps=1e-05, elementwise_affine=True, bias=True)
+  (lf): Linear(in_features=512, out_features=50257, bias=True)
+)
+[2026-06-07 12:56:35,491][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-07 12:56:35,494][huggingface_hub.utils._http][WARNING] - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-07 12:56:35,554][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/Salesforce/wikitext/b08601e04326c79dfdd32d625aee71d232d685c3/README.md "HTTP/1.1 200 OK"
+[2026-06-07 12:56:35,804][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext.py "HTTP/1.1 404 Not Found"
+[2026-06-07 12:56:36,553][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/Salesforce/wikitext/Salesforce/wikitext.py "HTTP/1.1 404 Not Found"
+[2026-06-07 12:56:36,807][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/revision/b08601e04326c79dfdd32d625aee71d232d685c3 "HTTP/1.1 200 OK"
+[2026-06-07 12:56:37,055][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/.huggingface.yaml "HTTP/1.1 404 Not Found"
+[2026-06-07 12:56:37,426][httpx][INFO] - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=Salesforce/wikitext "HTTP/1.1 200 OK"
+[2026-06-07 12:56:37,674][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-103-raw-v1?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-06-07 12:56:37,933][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3?recursive=false&expand=false "HTTP/1.1 200 OK"
+[2026-06-07 12:56:38,236][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/Salesforce/wikitext/resolve/b08601e04326c79dfdd32d625aee71d232d685c3/dataset_infos.json "HTTP/1.1 404 Not Found"
+[2026-06-07 12:56:38,507][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1?recursive=true&expand=false "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/core_ml/train.py", line 76, in main
+    train_loader = get_wikitext2_dataloader(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/core_ml/data/wikitext2.py", line 30, in get_wikitext2_dataloader
+    dataset = WikiText2Dataset(tokenizer, block_size, split)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/core_ml/data/wikitext2.py", line 13, in __init__
+    encodings = tokenizer("\n\n".join(text["text"]), return_tensors="pt")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2513, in __call__
+    encodings = self._encode_plus(
+                ^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/tokenization_utils_tokenizers.py", line 959, in _encode_plus
+    encodings = self._tokenizer.encode_batch(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/core_ml/train.py", line 145, in <module>
+    main()
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+          ^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/hydra/core/utils.py", line 183, in run_job
+    with env_override(hydra_cfg.hydra.job.env_set):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/contextlib.py", line 141, in __exit__
+    def __exit__(self, typ, value, traceback):
+
+KeyboardInterrupt

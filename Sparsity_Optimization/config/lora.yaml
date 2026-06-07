@@ -1,0 +1,28 @@
+model:
+  name_or_path: "microsoft/deberta-v3-base"
+  num_labels: 2
+
+peft:
+  type: "lora"         # Change this to "adalora" or "sora" to test the others
+  rank: 8              # 8 is standard for LoRA. For AdaLoRA/SoRA, try 12 or 16 so it can prune down.
+  alpha: 16            # Typically set to 2x the rank
+
+training:
+  num_epochs: 10       # PEFT on small datasets usually needs more epochs. Try 5 to 10.
+  batch_size: 16       # 16 to 32 is optimal for CoLA
+  block_size: 128      # 128 is perfect since CoLA sentences are short
+  learning_rate: 3e-4  # PEFT requires a HIGHER learning rate than full fine-tuning! (Standard is 1e-4 to 5e-4)
+  eval_batch_size: 64
+  eval_interval: 1
+  log_interval: 100
+  max_iterations_per_epoch: 10000 # Make sure this doesn't cut your epochs short! (CoLA has ~8.5k train samples)
+
+adalora:
+  ortho_lambda: 0.1    # 0.1 is a good standard penalty
+  svd_threshold: 1e-5  
+
+sora:
+  proximal_threshold: 1e-3 
+  
+wandb:
+  name: "Lora" # If the effective rank drops to 0 too fast, make this smaller (e.g., 1e-4)

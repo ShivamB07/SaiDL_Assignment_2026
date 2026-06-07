@@ -1,0 +1,5 @@
+hydra-core
+transformers
+torch
+datasets
+wandb

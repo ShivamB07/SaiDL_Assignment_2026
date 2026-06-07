@@ -1,0 +1,29 @@
+model:
+  n_embed: 512
+  block_size: 1024
+  num_layers: 4
+  num_head: 8
+  dropout_prob: 0.1
+attention:
+  type: mha
+  sliding_window_mask: false
+  window_size: 512
+  positional_encoding: alibi
+  group_size: 2
+  use_local_conv: true
+  ngram_size: 512
+  base: 10000
+optimiser:
+  lr: 0.0001
+train:
+  epochs: 10
+  eval_interval: 1
+  batch_size: 4
+  eval_batch_size: 6
+  block_size: 8
+  eval_block_size: 1024
+  log_interval: 100
+  max_iterations_per_epoch: 10000
+wandb:
+  project: SaiDl-core-ml
+  name: mha-alibi-CONV512-1024

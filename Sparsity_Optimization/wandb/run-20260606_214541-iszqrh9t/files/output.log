@@ -1,0 +1,140 @@
+[2026-06-06 21:45:43,909][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-06 21:45:43,910][huggingface_hub.utils._http][WARNING] - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-06-06 21:45:43,955][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3/config.json "HTTP/1.1 200 OK"
+[2026-06-06 21:45:44,204][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 21:45:44,253][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3/tokenizer_config.json "HTTP/1.1 200 OK"
+[2026-06-06 21:45:44,501][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:44,742][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-06-06 21:45:45,225][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base "HTTP/1.1 200 OK"
+[2026-06-06 21:45:45,469][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 21:45:45,516][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3/config.json "HTTP/1.1 200 OK"
+[2026-06-06 21:45:45,862][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 21:45:45,910][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3/config.json "HTTP/1.1 200 OK"
+[2026-06-06 21:45:46,159][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 198/198 [00:00<00:00, 17495.04it/s]
+[transformers] [1mDebertaV2ForSequenceClassification LOAD REPORT[0m from: microsoft/deberta-v3-base
+Key                                     | Status     |
+----------------------------------------+------------+-
+lm_predictions.lm_head.LayerNorm.bias   | [38;5;208mUNEXPECTED[0m |
+mask_predictions.LayerNorm.weight       | [38;5;208mUNEXPECTED[0m |
+mask_predictions.dense.bias             | [38;5;208mUNEXPECTED[0m |
+mask_predictions.dense.weight           | [38;5;208mUNEXPECTED[0m |
+lm_predictions.lm_head.dense.weight     | [38;5;208mUNEXPECTED[0m |
+lm_predictions.lm_head.dense.bias       | [38;5;208mUNEXPECTED[0m |
+mask_predictions.classifier.bias        | [38;5;208mUNEXPECTED[0m |
+lm_predictions.lm_head.LayerNorm.weight | [38;5;208mUNEXPECTED[0m |
+mask_predictions.classifier.weight      | [38;5;208mUNEXPECTED[0m |
+lm_predictions.lm_head.bias             | [38;5;208mUNEXPECTED[0m |
+mask_predictions.LayerNorm.bias         | [38;5;208mUNEXPECTED[0m |
+pooler.dense.weight                     | [31mMISSING[0m    |
+classifier.weight                       | [31mMISSING[0m    |
+pooler.dense.bias                       | [31mMISSING[0m    |
+classifier.bias                         | [31mMISSING[0m    |
+
+Notes:
+- [38;5;208mUNEXPECTED:[0m	[3mcan be ignored when loading from different task/architecture; not ok if you expect identical arch.[0m
+- [31mMISSING:[0m	[3mthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.[0m
+[2026-06-06 21:45:46,403][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base "HTTP/1.1 200 OK"
+Trainable params: 590208 || All params: 185013890 || Trainable %: 0.3190
+[2026-06-06 21:45:46,666][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base/commits/main "HTTP/1.1 200 OK"
+[2026-06-06 21:45:46,919][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base/discussions?p=0 "HTTP/1.1 200 OK"
+[2026-06-06 21:45:46,988][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 21:45:47,030][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/nyu-mll/glue/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/README.md "HTTP/1.1 200 OK"
+[2026-06-06 21:45:47,182][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-v3-base/commits/refs%2Fpr%2F14 "HTTP/1.1 200 OK"
+[2026-06-06 21:45:47,275][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/glue.py "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:47,427][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/refs%2Fpr%2F14/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:47,678][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/microsoft/deberta-v3-base/resolve/refs%2Fpr%2F14/model.safetensors "HTTP/1.1 302 Found"
+[2026-06-06 21:45:48,054][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/nyu-mll/glue/nyu-mll/glue.py "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:48,355][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/nyu-mll/glue/revision/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c "HTTP/1.1 200 OK"
+[2026-06-06 21:45:48,622][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/.huggingface.yaml "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:49,015][httpx][INFO] - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=nyu-mll/glue "HTTP/1.1 200 OK"
+[2026-06-06 21:45:49,262][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/nyu-mll/glue/tree/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/ax?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-06-06 21:45:49,507][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/nyu-mll/glue/tree/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c?recursive=false&expand=false "HTTP/1.1 200 OK"
+[2026-06-06 21:45:49,752][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/dataset_infos.json "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:50,001][httpx][INFO] - HTTP Request: GET https://huggingface.co/api/datasets/nyu-mll/glue/tree/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/cola?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-06-06 21:45:51,167][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+[2026-06-06 21:45:51,213][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/nyu-mll/glue/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/README.md "HTTP/1.1 200 OK"
+[2026-06-06 21:45:51,455][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/glue.py "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:51,694][httpx][INFO] - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/nyu-mll/glue/nyu-mll/glue.py "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:51,969][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/.huggingface.yaml "HTTP/1.1 404 Not Found"
+[2026-06-06 21:45:52,221][httpx][INFO] - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=nyu-mll/glue "HTTP/1.1 200 OK"
+[2026-06-06 21:45:52,485][httpx][INFO] - HTTP Request: HEAD https://huggingface.co/datasets/nyu-mll/glue/resolve/bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/dataset_infos.json "HTTP/1.1 404 Not Found"
+cuda
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/Sparsity & Optimization/train.py", line 94, in main
+    val_loss, val_mcc = evaluate(model, val_loader, device)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/Sparsity & Optimization/train.py", line 28, in evaluate
+    outputs = model(**batch)
+              ^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py", line 1059, in forward
+    outputs = self.deberta(
+              ^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py", line 765, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py", line 653, in forward
+    output_states, attn_weights = layer_module(
+                                  ^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py", line 432, in forward
+    attention_output, att_matrix = self.attention(
+                                   ^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py", line 365, in forward
+    self_output, att_matrix = self.self(
+                              ^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/transformers/models/deberta_v2/modeling_deberta_v2.py", line 231, in forward
+    query_layer = self.transpose_for_scores(self.query_proj(query_states), self.num_attention_heads)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shivam/miniconda3/envs/ml/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/SAiDL-Summer-Assignment-2026/Sparsity & Optimization/peft/SoRA.py", line 22, in forward
+    return self.original(x) + (x @ adapt) * self.scaling
+                               ~~^~~~~~~
+RuntimeError: expected mat1 and mat2 to have the same dtype, but got: c10::Half != float
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

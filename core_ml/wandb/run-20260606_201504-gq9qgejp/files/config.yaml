@@ -1,0 +1,91 @@
+_wandb:
+    value:
+        cli_version: 0.27.0
+        e:
+            23a4etvvtem8nlqof4oiwn6cr2ie8a19:
+                args:
+                    - --config-name
+                    - MHA_RoPE2048_1024
+                codePath: train.py
+                codePathLocal: train.py
+                cpu_count: 8
+                cpu_count_logical: 16
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "1081101176832"
+                        used: "12091932672"
+                email: f20251402@goa.bits-pilani.ac.in
+                executable: /home/shivam/miniconda3/envs/ml/bin/python
+                gpu: NVIDIA GeForce RTX 4050 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ada
+                      memoryTotal: "6439305216"
+                      name: NVIDIA GeForce RTX 4050 Laptop GPU
+                      uuid: GPU-1a677ef9-a65d-38cd-1d18-e3c159265759
+                host: Shivam
+                memory:
+                    total: "10427125760"
+                os: Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43
+                program: /mnt/d/SAiDL-Summer-Assignment-2026/core_ml/train.py
+                python: CPython 3.12.13
+                root: /mnt/d/SAiDL-Summer-Assignment-2026/core_ml
+                startedAt: "2026-06-06T20:15:04.213832Z"
+                writerId: 23a4etvvtem8nlqof4oiwn6cr2ie8a19
+        m: []
+        python_version: 3.12.13
+        t:
+            "1":
+                - 1
+                - 11
+                - 49
+                - 50
+            "2":
+                - 1
+                - 11
+                - 49
+                - 50
+                - 51
+            "3":
+                - 13
+                - 16
+            "4": 3.12.13
+            "5": 0.27.0
+            "6": 5.9.0
+            "12": 0.27.0
+            "13": linux-x86_64
+attention:
+    value:
+        base: 2048
+        group_size: 2
+        ngram_size: 3
+        positional_encoding: rope
+        sliding_window_mask: false
+        type: mha
+        use_local_conv: false
+        window_size: 512
+model:
+    value:
+        block_size: 1024
+        dropout_prob: 0.1
+        n_embed: 512
+        num_head: 8
+        num_layers: 4
+optimiser:
+    value:
+        lr: 0.001
+train:
+    value:
+        batch_size: 4
+        block_size: 8
+        epochs: 10
+        eval_batch_size: 6
+        eval_block_size: 1024
+        eval_interval: 1
+        log_interval: 100
+        max_iterations_per_epoch: 10000
+wandb:
+    value:
+        name: mha-rope(2048)-1024
+        project: SaiDl-core-ml
